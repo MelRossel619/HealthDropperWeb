@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizar Parámetros</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .datos-container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .datos-item {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="datos-container">
+    <h2>Parámetros</h2>
+    
+    <div class="datos-item" id="dosis-container">
+        <strong>Dosis Suministrada:</strong> <span id="dosis"></span>
+    </div>
+
+    <div class="datos-item" id="fecha-container">
+        <strong>Fecha de Inicio de Dosificación:</strong> <span id="fecha"></span>
+    </div>
+
+    <div class="datos-item" id="penultima-hora-container">
+        <strong>Penúltima Hora de Inicio:</strong> <span id="penultima-hora"></span>
+    </div>
+
+    <div class="datos-item" id="ultima-hora-container">
+        <strong>Última Hora de Inicio:</strong> <span id="ultima-hora"></span>
+    </div>
+
+    <button onclick="actualizarDatos()">Actualizar Datos</button>
+</div>
+
+<script>
+    function actualizarDatos() {
+        // Crear un objeto XMLHttpRequest
+        let xhttp = new XMLHttpRequest();
+
+        // Configurar la solicitud
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Manejar la respuesta del servidor
+                var datos = JSON.parse(this.responseText);
+
+                // Mostrar los datos en la página
+                document.getElementById('dosis').innerText = datos.DOSIS;
+                document.getElementById('fecha').innerText = datos.FechaFinalizacion;
+                document.getElementById('ultima-hora').innerText = datos.UltimaHoraInicio;
+                document.getElementById('penultima-hora').innerText = datos.PenultimaHoraInicio;
+            }
+        };
+
+        // Especificar el tipo de solicitud y la URL del servidor
+        xhttp.open("GET", "http://localhost/UltimoDato.php", true);
+        xhttp.send();
+    }
+</script>
+
+</body>
+</html>

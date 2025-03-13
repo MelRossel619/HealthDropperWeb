@@ -1,0 +1,294 @@
+/*
+ * Copyright (c) 2012-2013 Thibaut Courouble
+ * http://www.cssflow.com
+ * Licensed under the MIT License
+ *
+ * Sass/SCSS source: https://goo.gl/UhXKg
+ * PSD by Vin Thomas: https://goo.gl/n1M2e
+ */
+
+ body {
+  font: 10px/20px "Lucida Grande", Tahoma, Verdana, sans-serif;
+  color: #404040;
+  background: url(imgs/background.png);
+}
+.container {
+  margin: 5px auto;
+  width: 290px;
+  text-align: center;
+  
+}
+
+.container .progress {
+  margin: 0 auto;
+  width: 190px;
+}
+
+.progress {
+  padding: 3px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 6px;
+  -webkit-box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.25), 0 1px rgba(255, 255, 255, 0.08);
+}
+
+.progress-bar {
+  height: 18px;
+  border-radius: 8px;
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.05));
+  -webkit-transition: 0.4s linear;
+  -moz-transition: 0.4s linear;
+  -o-transition: 0.4s linear;
+  transition: 0.4s linear;
+  -webkit-transition-property: width, background-color;
+  -moz-transition-property: width, background-color;
+  -o-transition-property: width, background-color;
+  transition-property: width, background-color;
+  -webkit-box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.25), inset 0 1px rgba(255, 255, 255, 0.1);
+}
+
+.radio {
+  display: none;
+}
+
+.label {
+  display: inline-block;
+  margin: 0 0.5px 5px;
+  padding: 3px 8px;
+  color: #aaa;
+  text-shadow: 0 1px black;
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.radio:checked + .label {
+  color: white;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Cama 1 */
+#five1:checked ~ .progress > .progress-bar {
+  width: 5%;
+  background-color: #f63a0f;
+}
+#twentyfive1:checked ~ .progress > .progress-bar {
+  width: 25%;
+  background-color: #f27011;
+}
+#fifty1:checked ~ .progress > .progress-bar {
+  width: 50%;
+  background-color: #f2b01e;
+}
+#seventyfive1:checked ~ .progress > .progress-bar {
+  width: 75%;
+  background-color: #f2d31b;
+}
+#onehundred1:checked ~ .progress > .progress-bar {
+  width: 100%;
+  background-color: #86e01e;
+}
+
+/* Cama 2 */
+#five2:checked ~ .progress > .progress-bar {
+  width: 5%;
+  background-color: #f63a0f;
+}
+#twentyfive2:checked ~ .progress > .progress-bar {
+  width: 25%;
+  background-color: #f27011;
+}
+#fifty2:checked ~ .progress > .progress-bar {
+  width: 50%;
+  background-color: #f2b01e;
+}
+#seventyfive2:checked ~ .progress > .progress-bar {
+  width: 75%;
+  background-color: #f2d31b;
+}
+#onehundred2:checked ~ .progress > .progress-bar {
+  width: 100%;
+  background-color: #86e01e;
+}
+
+/* Cama 3 */
+#five3:checked ~ .progress > .progress-bar {
+  width: 5%;
+  background-color: #f63a0f;
+}
+#twentyfive3:checked ~ .progress > .progress-bar {
+  width: 25%;
+  background-color: #f27011;
+}
+#fifty3:checked ~ .progress > .progress-bar {
+  width: 50%;
+  background-color: #f2b01e;
+}
+#seventyfive3:checked ~ .progress > .progress-bar {
+  width: 75%;
+  background-color: #f2d31b;
+}
+#onehundred3:checked ~ .progress > .progress-bar {
+  width: 100%;
+  background-color: #86e01e;
+}
+
+/* Cama 4 */
+#five4:checked ~ .progress > .progress-bar {
+  width: 5%;
+  background-color: #f63a0f;
+}
+#twentyfive4:checked ~ .progress > .progress-bar {
+  width: 25%;
+  background-color: #f27011;
+}
+#fifty4:checked ~ .progress > .progress-bar {
+  width: 50%;
+  background-color: #f2b01e;
+}
+#seventyfive4:checked ~ .progress > .progress-bar {
+  width: 75%;
+  background-color: #f2d31b;
+}
+#onehundred4:checked ~ .progress > .progress-bar {
+  width: 100%;
+  background-color: #86e01e;
+}
+
+/* Cama 5 */
+#five5:checked ~ .progress > .progress-bar {
+  width: 5%;
+  background-color: #f63a0f;
+}
+#twentyfive5:checked ~ .progress > .progress-bar {
+  width: 25%;
+  background-color: #f27011;
+}
+#fifty5:checked ~ .progress > .progress-bar {
+  width: 50%;
+  background-color: #f2b01e;
+}
+#seventyfive5:checked ~ .progress > .progress-bar {
+  width: 75%;
+  background-color: #f2d31b;
+}
+#onehundred5:checked ~ .progress > .progress-bar {
+  width: 100%;
+  background-color: #86e01e;
+}
+
+/* Cama 6 */
+#five6:checked ~ .progress > .progress-bar {
+  width: 5%;
+  background-color: #f63a0f;
+}
+#twentyfive6:checked ~ .progress > .progress-bar {
+  width: 25%;
+  background-color: #f27011;
+}
+#fifty6:checked ~ .progress > .progress-bar {
+  width: 50%;
+  background-color: #f2b01e;
+}
+#seventyfive6:checked ~ .progress > .progress-bar {
+  width: 75%;
+  background-color: #f2d31b;
+}
+#onehundred6:checked ~ .progress > .progress-bar {
+  width: 100%;
+  background-color: #86e01e;
+}
+.pushable {
+  position: relative;
+  border: none;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  outline-offset: 4px;
+  transition: filter 250ms;
+}
+
+.shadow {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: hsl(0deg 0% 0% /0.25);
+  will-change: transform;
+  transform: translateY(2px);
+  transition: 
+    transform
+    600ms
+    cubic-bezier(.3,.7,.4,1);
+}
+
+.edge {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 12px;
+  background: linear-gradient(
+    to left,
+    hsl(340deg 100% 16%) 0%,
+    hsl(340deg 100% 32%) 8%,
+    hsl(340deg 100% 32%) 92%,
+    hsl(340deg 100% 16%) 100%,
+  );
+}
+
+.front {
+  display: block;
+  position: relative;
+  padding: 6px 25px;
+  border-radius: 12px;
+  font-size: 1.10rem;
+  color: white;
+  background: hsl(345deg 100% 47%);
+  will-change: transform;
+  transform: translateY(-4px);
+  transition: 
+    transform
+    600ms
+    cubic-bezier(.3,.7,.4,1);
+}
+
+.pushable:hover {
+  filter: brightness(110%);
+}
+
+.pushable:hover .front {
+  transform: translateY(-6px);
+  transition: 
+    transform
+    250ms
+    cubic-bezier(.3,.7,.4,1.5);
+}
+
+.pushable:active .front {
+  transform: translateY(-2px);
+  transition: transform 34ms;
+}
+
+.pushable:hover .shadow {
+  transform: translateY(4px);
+  transition: 
+    transform
+    250ms
+    cubic-bezier(.3,.7,.4,1.5);
+}
+
+.pushable:active .shadow {
+  transform: translateY(1px);
+  transition: transform 34ms;
+}
+
+.pushable:focus:not(:focus-visible) {
+  outline: none;
+}

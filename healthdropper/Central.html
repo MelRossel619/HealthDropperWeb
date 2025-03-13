@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HD: Central de Monitoreo</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Halenoir Display Extra Bold', Arial, sans-serif;
+            background-image: url('imgs/background.png');
+            background-size: cover;
+            background-position: center;
+        }
+
+        .barra-superior {
+            background-color: #87CEEB;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        .logo-seccion {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo-seccion img {
+            width: 90px;
+            height: 100px;
+            margin-right: 150px;
+        }
+
+        .titulo {
+            text-align: center;
+            flex-grow: 5;
+            font-size: 50px;
+            font-weight: bold;
+            color: white;
+            text-transform: uppercase;
+            text-decoration: underline;
+        }
+
+        .opciones {
+            display: flex;
+            align-items: center;
+        }
+
+        .opcion {
+            text-align: center;
+            margin-left: 20px;
+            color: black;
+            border: 2px solid #000000;
+            border-radius: 10px;
+            padding: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .opcion img {
+            width: 60px;
+            height: 60px;
+            display: block;
+            margin: 0 auto;
+        }
+
+        .opcion span {
+            font-size: 12px;
+        }
+
+        .opcion:hover {
+            border-color: #000;
+            background-color: #f0f0f0;
+            transform: scale(1.05);
+        }
+
+        .logo-seccion .opcion {
+            cursor: pointer;
+        }
+
+        .botones-principales {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px auto;
+            max-width: 1000px;
+        }
+
+        .boton {
+            width: 300px;
+            height: 250px;
+            background: linear-gradient(to bottom, #add8e6, #4682b4);
+            border: 2px solid #000;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            text-align: center;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .boton img {
+            width: 100px;
+            height: 100px;
+            margin-bottom: 10px;
+        }
+
+        .boton:hover {
+            transform: scale(1.1);
+            box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .terapias-section {
+            margin: 10px auto;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .terapias-section h2 {
+            margin: 0 0 20px;
+            font-size: 26px;
+            font-weight: bold;
+        }
+
+        .terapia-item {
+            display: inline-block;
+            width: 30%;
+            border-radius: 10px;
+            padding: 15px;
+            margin: 0 10px;
+        }
+
+        .terapia-item p {
+            margin: 5px 0;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .progress-container {
+        margin-top: 1px;
+        position: relative;
+        background-color: #87CEEB; /* Fondo azul cielo */
+        border: 2px solid #010202; /* Borde azul oscuro */
+        border-radius: 40px; /* Bordes redondeados */
+        padding: 15px; /* Espaciado interno */
+        display: inline-block;
+        text-align: center; /* Centrar contenido */
+        color: black; /* Color del texto */
+        width: 90%; /* Ancho adaptable */
+    }
+
+    .progress-bar {
+        width: 100%;
+        height: 20px; /* Altura de la barra */
+        background-color: #b6b6ae; /* Color de fondo de la barra */
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+
+    .progress-bar-inner {
+        height: 100%;
+        background-color: #4caf50; /* Color verde */
+        border-radius: 10px;
+    }
+
+    .progress-value {
+        font-size: 24px; /* Tamaño del texto */
+        font-weight: bold;
+        margin-top: 10px;
+        background-color: black; /* Fondo negro */
+        color: #4caf50; /* Texto verde */
+        display: inline-block;
+        padding: 5px 10px;
+        border-radius: 10px;
+    }
+    </style>
+</head>
+<body>
+    <div class="barra-superior">
+        <div class="logo-seccion">
+            <img src="imgs/SimbolHD.png" alt="Logo">
+            <div class="opcion" onclick="location.href='LogHD.html'">
+                <img src="imgs/Logout.png" alt="Cerrar sesión">
+                <span>Cerrar sesión</span>
+            </div>
+        </div>
+        <div class="titulo">Central de Monitoreo</div>
+        <div class="opciones">
+            <div class="opcion" onclick="location.href='RegMed.php'">
+                <img src="imgs/regMed.png" alt="Registro de medicamentos">
+                <span>Registro de medicamentos</span>
+            </div>
+            <div class="opcion" onclick="location.href='RegPac.php'">
+                <img src="imgs/Uusarios.png" alt="Pacientes">
+                <span>Pacientes</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="botones-principales">
+        <div class="boton" onclick="location.href='InicTerapia.html'">
+            <img src="imgs/iniciar.png" alt="Iniciar Terapia">
+            INICIAR TERAPIA
+        </div>
+        <div class="boton" onclick="location.href='verTerapias.php'">
+            <img src="imgs/VER.png" alt="Ver Terapias">
+            VER TERAPIAS ACTIVAS
+        </div>
+        <div class="boton" onclick="location.href='historialTerapias.html'">
+            <img src="imgs/Historia.png" alt="Historial de Terapias">
+            HISTORIA DE TERAPIAS
+        </div>
+    </div>
+
+    <!-- Nueva sección añadida -->
+    <div class="terapias-section">
+        <h2>TERAPIAS ACTIVAS PROXIMAS A TERMINAR:</h2>
+        <!-- Contenedor de terapias -->
+        <div id="terapias-container">
+            <div class="terapia-item" data-progress="50">
+                <div class="progress-container">
+                    <p><strong>Cama 1:</strong> Rossel Melvin</p>
+                    <p><strong>Dosis:</strong> 150ml, <strong>Flujo:</strong> 101got/ml</p>
+                    <p><strong>MED:</strong> Ciprofloxacina</p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner" style="width: 50%;"></div>
+                    </div>
+                    <div class="progress-value">50%</div>
+                </div>
+            </div>
+            <div class="terapia-item" data-progress="70">
+                <div class="progress-container">
+                    <p><strong>Cama 3:</strong> Juan Lopez</p>
+                    <p><strong>Dosis:</strong> 150ml, <strong>Flujo:</strong> 101got/ml</p>
+                    <p><strong>MED:</strong> Ciprofloxacina</p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner" style="width: 70%;"></div>
+                    </div>
+                    <div class="progress-value">70%</div>
+                </div>
+            </div>
+            <div class="terapia-item" data-progress="80">
+                <div class="progress-container">
+                    <p><strong>Cama 5:</strong> Aida Gutierrez</p>
+                    <p><strong>Dosis:</strong> 150ml, <strong>Flujo:</strong> 101got/ml</p>
+                    <p><strong>MED:</strong> Ciprofloxacina</p>
+                    <div class="progress-bar">
+                        <div class="progress-bar-inner" style="width: 80%;"></div>
+                    </div>
+                    <div class="progress-value">80%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Ordenar las terapias por porcentaje de completado
+        const container = document.getElementById('terapias-container');
+        const items = Array.from(container.children);
+
+        // Ordenar los elementos basándose en el atributo "data-progress"
+        items.sort((a, b) => {
+            const progressA = parseInt(a.getAttribute('data-progress'), 10);
+            const progressB = parseInt(b.getAttribute('data-progress'), 10);
+            return progressB - progressA; // Orden descendente
+        });
+
+        // Limpiar el contenedor y volver a agregar los elementos ordenados
+        container.innerHTML = '';
+        items.forEach(item => container.appendChild(item));
+        /*function incrementarProgreso() {
+        const cama1Item = document.querySelector('.terapia-item:nth-child(1)'); // Seleccionar la primera terapia (Cama 1)
+        const progressBarInner = cama1Item.querySelector('.progress-bar-inner'); // Barra de progreso interna
+        const progressValue = cama1Item.querySelector('.progress-value'); // Porcentaje mostrado
+
+        // Obtener el progreso actual como número
+        let currentProgress = parseInt(progressBarInner.style.width, 10);
+
+        // Incrementar el progreso
+        if (currentProgress < 100) { // Limitar a 100%
+            const newProgress = Math.min(currentProgress + 5, 100); // Incrementar 5%, sin exceder 100
+            progressBarInner.style.transition = "width 1s"; // Animar el cambio de ancho
+            progressBarInner.style.width = `${newProgress}%`; // Actualizar el ancho de la barra
+
+            // Actualizar el porcentaje mostrado
+            progressValue.textContent = `${newProgress}%`;
+
+            // Actualizar el atributo "data-progress" para mantener consistencia
+            cama1Item.setAttribute('data-progress', newProgress);
+        }
+    }
+
+    // Iniciar el incremento cada 5 segundos
+    setInterval(incrementarProgreso, 5000);*/
+
+    </script>
+    
+    
+</body>
+</html>

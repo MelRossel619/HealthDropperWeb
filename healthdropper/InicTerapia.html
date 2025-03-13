@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Terapia</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f4faff;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            background-image: url('imgs/background.png');
+        }
+        .barra-superior {
+            background-color: #89c9ff;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px;
+            width: 100%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .barra-superior .izquierda {
+            display: flex;
+            align-items: center;
+        }
+        .barra-superior .izquierda img {
+            width: 120px;
+            height: 120px;
+            margin-right: 10px;
+        }
+        .barra-superior .izquierda .btn-atras {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: white;
+            border: none;
+            padding: 15px;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        .barra-superior .izquierda .btn-atras img {
+            width: 60px;
+            height: 40px;
+        }
+        .barra-superior .izquierda .btn-atras:hover {
+            background-color: #d9f0ff;
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .barra-superior .titulo {
+            flex-grow: 1;
+            text-align: center;
+            font-size: 40px;
+            color: white;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+        .barra-superior .derecha {
+            text-align: left;
+            font-size: 16px;
+            color: black;
+            padding-right: 120px;
+        }
+
+        .contenido {
+            display: flex;
+            justify-content: space-between;
+            width: 80%;
+            margin-top: 10px;
+            gap: 20px;
+        }
+        .formulario {
+            background-color: white;
+            border: 2px solid #005f73;
+            border-radius: 10px;
+            padding: 20px;
+            width: 60%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .formulario h2 {
+            font-size: 24px;
+            color: #005f73;
+            margin-bottom: 20px;
+        }
+        .formulario label {
+            display: block;
+            font-size: 20px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .formulario input[type="text"], .formulario select, .formulario textarea {
+            width: 80%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .formulario textarea {
+            height: 80px;
+            resize: none;
+        }
+        .formulario .nota {
+            visibility: hidden;
+            font-size: 14px;
+            color: red;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+
+        .formulario-derecha {
+            background-color: white;
+            border: 2px solid #005f73;
+            border-radius: 10px;
+            padding: 20px;
+            width: 40%;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        .formulario-derecha label {
+            display: block;
+            font-size: 18px;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .formulario-derecha input[type="number"] {
+            width: 50%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 5px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        .formulario-derecha .nota {
+            visibility: hidden;
+            font-size: 14px;
+            color: red;
+            margin-top: -10px;
+            margin-bottom: 10px;
+        }
+        .formulario-derecha button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #005f73;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .formulario-derecha button:hover {
+            background-color: #013a4e;
+        }
+
+        #tiempo-container, #flujo-container {
+            display: none;
+        }
+    </style>
+    <script>
+        function setFechaHora() {
+            const now = new Date();
+            const optionsFecha = { year: 'numeric', month: '2-digit', day: '2-digit' };
+            const fecha = now.toLocaleDateString('es-ES', optionsFecha);
+            const hora = now.toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit', hour12: true });
+
+            document.getElementById('fecha').textContent = `Fecha: ${fecha}`;
+            document.getElementById('hora').textContent = `Hora: ${hora}`;
+        }
+
+        window.onload = function() {
+            setFechaHora();
+
+            const regulacionRadios = document.getElementsByName('regulacion');
+            const tiempoContainer = document.getElementById('tiempo-container');
+            const flujoContainer = document.getElementById('flujo-container');
+
+            regulacionRadios.forEach(radio => {
+                radio.addEventListener('change', () => {
+                    if (radio.value === 'tiempo' && radio.checked) {
+                        tiempoContainer.style.display = 'block';
+                        flujoContainer.style.display = 'none';
+                    } else if (radio.value === 'flujo' && radio.checked) {
+                        flujoContainer.style.display = 'block';
+                        tiempoContainer.style.display = 'none';
+                    } else {
+                        tiempoContainer.style.display = 'none';
+                        flujoContainer.style.display = 'none';
+                    }
+                });
+            });
+        };
+
+        function irAtras() {
+            history.back();
+        }
+
+        // Fetch para obtener pacientes desde un archivo PHP
+        fetch('selecpac.php')
+        .then(response => response.json())
+        .then(data => {
+            const select = document.getElementById('paciente');
+            select.innerHTML = '<option value="">Seleccione un paciente</option>';
+            data.forEach(paciente => {
+                const option = document.createElement('option');
+                option.value = paciente.id; // Puedes usar el ID del paciente
+                option.textContent = `${paciente.nombre} ${paciente.apellido}`;
+                select.appendChild(option);
+            });
+        })
+        .catch(error => console.error('Error al cargar los pacientes:', error));
+        //Fetch para obtencion de medicamentos
+        fetch('selecmed.php')
+        .then(response => response.json())
+        .then(data => {
+        const selectMedicamento = document.getElementById('medicamento');
+        selectMedicamento.innerHTML = '<option value="">Seleccione un medicamento</option>';
+        data.forEach(medicamento => {
+        const option = document.createElement('option');
+        option.value = medicamento.ID; // Usar el ID del medicamento
+        option.textContent = medicamento.Nombre;
+        selectMedicamento.appendChild(option);
+    });
+})
+.catch(error => console.error('Error al cargar los medicamentos:', error));
+        function limpiarFormulario() {
+        // Obtener todos los inputs de texto y textarea
+        const inputsTexto = document.querySelectorAll('input[type="text"], textarea');
+        inputsTexto.forEach(input => input.value = '');
+
+        // Reiniciar selects
+        const selects = document.querySelectorAll('select');
+        selects.forEach(select => select.selectedIndex = 0);
+
+        // Desmarcar los radios
+        const radios = document.querySelectorAll('input[type="radio"]');
+        radios.forEach(radio => radio.checked = false);
+
+        // Ocultar contenedores condicionales
+        document.getElementById('tiempo-container').style.display = 'none';
+        document.getElementById('flujo-container').style.display = 'none';
+    }
+        document.addEventListener('DOMContentLoaded', function() {
+        const dosisInput = document.getElementById('dosis');
+        const dosisNota = dosisInput.nextElementSibling; // Nota correspondiente
+
+        const tiempoInput = document.getElementById('tiempo');
+        const tiempoNota = tiempoInput.nextElementSibling;
+
+        const flujoInput = document.getElementById('flujo');
+        const flujoNota = flujoInput.nextElementSibling;
+
+        // Función para validar rango y mostrar/ocultar nota
+        function validarRango(input, nota, min, max) {
+            const valor = parseFloat(input.value);
+            if (valor < min || valor > max) {
+                nota.style.visibility = 'visible'; // Mostrar la nota
+            } else {
+                nota.style.visibility = 'hidden'; // Ocultar la nota
+            }
+        }
+
+        // Agregar eventos de validación a los campos
+        dosisInput.addEventListener('input', function() {
+            validarRango(dosisInput, dosisNota, 1, 3000);
+        });
+
+        tiempoInput.addEventListener('input', function() {
+            validarRango(tiempoInput, tiempoNota, 0.1, 24);
+        });
+
+        flujoInput.addEventListener('input', function() {
+            validarRango(flujoInput, flujoNota, 3, 120);
+        });
+    });
+    function validarFormulario() {
+    let esValido = true;
+
+    // Validar paciente
+    const paciente = document.getElementById('paciente');
+    const pacienteNota = paciente.nextElementSibling;
+    if (!paciente.value) {
+        pacienteNota.style.visibility = 'visible';
+        esValido = false;
+    } else {
+        pacienteNota.style.visibility = 'hidden';
+    }
+
+    // Validar descripción
+    const descripcion = document.getElementById('descripcion');
+    const descripcionNota = descripcion.nextElementSibling;
+    if (!descripcion.value.trim()) {
+        descripcionNota.style.visibility = 'visible';
+        esValido = false;
+    } else {
+        descripcionNota.style.visibility = 'hidden';
+    }
+
+    // Validar dosis
+    const dosis = document.getElementById('dosis');
+    const dosisNota = dosis.nextElementSibling;
+    const dosisValor = parseFloat(dosis.value);
+    if (isNaN(dosisValor) || dosisValor < 1 || dosisValor > 3000) {
+        dosisNota.style.visibility = 'visible';
+        esValido = false;
+    } else {
+        dosisNota.style.visibility = 'hidden';
+    }
+
+    // Validar regulación
+    const regulacionRadios = document.getElementsByName('regulacion');
+    const regulacionNota = document.getElementById('regulacion-nota');
+    let regulacionSeleccionada = false;
+
+    regulacionRadios.forEach(radio => {
+        if (radio.checked) {
+            regulacionSeleccionada = true;
+            regulacionNota.style.visibility = 'hidden';
+
+            if (radio.value === 'tiempo') {
+                const tiempo = document.getElementById('tiempo');
+                const tiempoNota = tiempo.nextElementSibling;
+                const tiempoValor = parseFloat(tiempo.value);
+                if (isNaN(tiempoValor) || tiempoValor < 0.1 || tiempoValor > 24) {
+                    tiempoNota.style.visibility = 'visible';
+                    esValido = false;
+                } else {
+                    tiempoNota.style.visibility = 'hidden';
+                }
+            } else if (radio.value === 'flujo') {
+                const flujo = document.getElementById('flujo');
+                const flujoNota = flujo.nextElementSibling;
+                const flujoValor = parseFloat(flujo.value);
+                if (isNaN(flujoValor) || flujoValor < 3 || flujoValor > 120) {
+                    flujoNota.style.visibility = 'visible';
+                    esValido = false;
+                } else {
+                    flujoNota.style.visibility = 'hidden';
+                }
+            }
+        }
+    });
+
+    if (!regulacionSeleccionada) {
+        regulacionNota.style.visibility = 'visible';
+        esValido = false;
+    }
+
+    // Validar medicamento
+    const medicamento = document.getElementById('medicamento');
+    const medicamentoNota = medicamento.nextElementSibling;
+    if (!medicamento.value) {
+        medicamentoNota.style.visibility = 'visible';
+        esValido = false;
+    } else {
+        medicamentoNota.style.visibility = 'hidden';
+    }
+
+    // Validar cama
+    const cama = document.getElementById('cama');
+    const camaNota = cama.nextElementSibling;
+    if (!cama.value) {
+        camaNota.style.visibility = 'visible';
+        esValido = false;
+    } else {
+        camaNota.style.visibility = 'hidden';
+    }
+
+    if (esValido) {
+        const userConfirmed = confirm("Formulario válido. ¿Desea guardar e iniciar la terapia?");
+        if (userConfirmed) {
+            // Redirigir a la página "monitoreo.html" si el usuario hace clic en "Aceptar"
+            window.location.href = "monitoreo.html"; // Redirección a monitoreo.html
+        } else {
+            alert('Operación cancelada.');
+        }
+    } else {
+        alert('Por favor, complete todos los campos correctamente.');
+    }
+}
+    </script>
+</head>
+<body>
+
+<div class="barra-superior">
+    <div class="izquierda">
+        <img src="imgs/LOGOENTHD.png" alt="Logo">
+        <button class="btn-atras" onclick="irAtras()">
+            <img src="imgs/atras.png" alt="Atrás">
+        </button>
+    </div>
+    <div class="titulo">Iniciar Terapia</div>
+    <div class="derecha">
+        <p>Terapia iniciada por: Lic. Fulanita</p>
+        <p id="fecha"></p>
+        <p id="hora"></p>
+    </div>
+</div>
+
+<div class="contenido">
+    <div class="formulario">
+        <h2>Datos de Terapia</h2>
+        <p>Su paciente no está en la lista? <a href="RegPac.php">Regístrelo</a></p>
+        <label for="paciente">Paciente:</label>
+        <select id="paciente">
+            <option value="">Cargando pacientes...</option>
+            <!-- Opciones serán insertadas aquí dinámicamente -->
+        </select>
+        <span class="nota">(Campo Obligatorio)</span>
+
+        <label for="descripcion">Descripción de tratamiento:</label>
+        <textarea id="descripcion" placeholder="Escriba la descripción"></textarea>
+
+        <label for="dosis">Dosis a aplicar:</label>
+        <input type="number" id="dosis" placeholder="Dosis en ml" max="3000" min="1"/> ml
+        <span class="nota">(3000ml máximo)</span>
+    </div>
+
+    <div class="formulario-derecha">
+        <h2>Configuración de Infusión</h2>
+        <label>Regulación por: <span id="regulacion-nota" class="nota">No seleccionado</span></label>
+        <label><input type="radio" name="regulacion" value="flujo"> Flujo</label>
+        <label><input type="radio" name="regulacion" value="tiempo"> Tiempo</label>
+
+        <div id="tiempo-container">
+            <label for="tiempo">Seleccione el tiempo de aplicación en horas:</label>
+            <input type="number" id="tiempo" placeholder="h" max="24" min="0.1">
+            <span class="nota">(24h máximo)</span>
+           
+        </div>
+
+        <div id="flujo-container">
+            <label for="flujo">Ingrese el flujo en gotas por minuto:</label>
+            <input type="number" id="flujo" placeholder="got/min" max="120" min="3">
+            <span class="nota">(120 got/min máximo)</span>
+            
+        </div>
+
+        <label for="medicamento">Medicamento o solución a infundir:</label>
+        <select id="medicamento">
+            <option value="">Seleccione un medicamento</option>
+        </select>
+        <span class="nota">(Campo Obligatorio)</span>
+
+        <label for="cama">Cama:</label>
+        <select id="cama">
+        <option value="">Seleccione una cama</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+        <option value="6">6</option>
+        <option value="7">7</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+        <option value="10">10</option>
+</select>
+<span class="nota">(Campo Obligatorio)</span>
+
+        <div style="margin-top: 20px;">
+            <button onclick="limpiarFormulario()">LIMPIAR</button>
+            <button onclick="validarFormulario()">GUARDAR E INICIAR</button>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

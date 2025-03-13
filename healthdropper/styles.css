@@ -1,0 +1,21 @@
+body{
+    background-image: url(imgs/background.png);
+}
+h1{
+    font-family:'Oswald', sans-serif;
+    
+}
+.text-center{
+    font-size: 80px;
+}
+.centro{
+    background-color: #c0c0c0;
+    margin-top: 100px;
+    padding: 30px;
+    border-radius: 10%;
+}
+.form-label{
+    font-weight: bold;
+}
+
+    

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Insertar Dato en la Base de Datos</title>
+    <script>
+        function enviarDatos() {
+            var xhr = new XMLHttpRequest();
+            xhr.open("GET", "insertar.php?boton1=0&DOSIS=20", true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4 && xhr.status == 200) {
+                    document.getElementById("respuesta").innerHTML = xhr.responseText;
+                }
+            };
+            xhr.send();
+        }
+    </script>
+</head>
+<body>
+    <h1>Insertar Dosis en la Base de Datos</h1>
+    <button onclick="enviarDatos()">Añadir Dosis</button>
+    <div id="respuesta"></div>
+</body>
+</html>

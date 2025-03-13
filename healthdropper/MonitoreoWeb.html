@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="stilo.css" rel="stylesheet">
+    <title>HD: Monitoreo</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .titulo {
+            font-size: 50px;
+            margin-bottom: 70px;
+            color: rgb(241, 239, 239);
+        }
+
+        .contenedor-columnas {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+        }
+
+        .columna {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: #d2d6d6;
+            padding: 40px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            margin: 0 20px;
+        }
+
+        .detener {
+            margin-top: 20px;
+            padding: 5px 30px;
+        }
+
+        .imagen-central {
+            max-width: 100%;
+            height: auto;
+            margin-top: 20px;
+        }
+
+        .barra-carga {
+            position: relative;
+            width: 100%;
+            height: 20px;
+            background-color: #f0f0f0;
+            margin-bottom: 10px;
+            margin-right: 10px;
+            overflow: hidden;
+        }
+
+        .linea-limite {
+            position: absolute;
+            height: 100%;
+            width: 2px;
+            background-color: #000;
+        }
+
+        .linea-limite:nth-child(1) {
+            left: 25%;
+        }
+
+        .linea-limite:nth-child(2) {
+            left: 50%;
+        }
+
+        .linea-limite:nth-child(3) {
+            left: 75%;
+        }
+    </style>
+<link type="text/css" rel="stylesheet" href="css/style.css"/>
+</head>
+<body>
+    <h1 class="titulo">CENTRAL DE MONITORIZACION</h1>
+    <div class="contenedor-columnas">
+        <div class="columna">
+            <!-- Cama 1 -->
+            <div class="mensaje">
+                <h1>Cama 1</h1>
+                <div class="container">
+                    <input type="radio" class="radio" name="progress1" value="five" id="five1">
+                    <label for="five1" class="label">5%</label>
+
+                    <input type="radio" class="radio" name="progress1" value="twentyfive" id="twentyfive1" checked>
+                    <label for="twentyfive1" class="label">25%</label>
+
+                    <input type="radio" class="radio" name="progress1" value="fifty" id="fifty1">
+                    <label for="fifty1" class="label">50%</label>
+
+                    <input type="radio" class="radio" name="progress1" value="seventyfive" id="seventyfive1">
+                    <label for="seventyfive1" class="label">75%</label>
+
+                    <input type="radio" class="radio" name="progress1" value="onehundred" id="onehundred1">
+                    <label for="onehundred1" class="label">100%</label>
+
+                    <div class="progress">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+      <button class="pushable">
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front">
+        Detener
+      </span>
+      </button>
+            </div>
+            <!-- Cama 2 -->
+            <div class="mensaje">
+                <h1>Cama 2</h1>
+                <div class="container">
+                    <input type="radio" class="radio" name="progress2" value="five" id="five2">
+                    <label for="five2" class="label">5%</label>
+
+                    <input type="radio" class="radio" name="progress2" value="twentyfive" id="twentyfive2" checked>
+                    <label for="twentyfive2" class="label">25%</label>
+
+                    <input type="radio" class="radio" name="progress2" value="fifty" id="fifty2">
+                    <label for="fifty2" class="label">50%</label>
+
+                    <input type="radio" class="radio" name="progress2" value="seventyfive" id="seventyfive2">
+                    <label for="seventyfive2" class="label">75%</label>
+
+                    <input type="radio" class="radio" name="progress2" value="onehundred" id="onehundred2">
+                    <label for="onehundred2" class="label">100%</label>
+
+                    <div class="progress">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+                <button class="pushable">
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front">
+        Detener
+      </span>
+      </button>
+            </div>
+            <!-- Cama 3 -->
+            <div class="mensaje">
+                <h1>Cama 3</h1>
+                <div class="container">
+                    <input type="radio" class="radio" name="progress3" value="five" id="five3">
+                    <label for="five3" class="label">5%</label>
+
+                    <input type="radio" class="radio" name="progress3" value="twentyfive" id="twentyfive3" checked>
+                    <label for="twentyfive3" class="label">25%</label>
+
+                    <input type="radio" class="radio" name="progress3" value="fifty" id="fifty3">
+                    <label for="fifty3" class="label">50%</label>
+
+                    <input type="radio" class="radio" name="progress3" value="seventyfive" id="seventyfive3">
+                    <label for="seventyfive3" class="label">75%</label>
+
+                    <input type="radio" class="radio" name="progress3" value="onehundred" id="onehundred3">
+                    <label for="onehundred3" class="label">100%</label>
+
+                    <div class="progress">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+                <button class="pushable">
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front">
+        Detener
+      </span>
+      </button>
+            </div>
+        </div>
+        <img src="imgs/HD-PNG.png" alt="Imagen Central" class="imagen-central">
+        <div class="columna">
+            <!-- Cama 4 -->
+            <div class="mensaje">
+                <h1>Cama 4</h1>
+                <div class="container">
+                    <input type="radio" class="radio" name="progress4" value="five" id="five4">
+                    <label for="five4" class="label">5%</label>
+
+                    <input type="radio" class="radio" name="progress4" value="twentyfive" id="twentyfive4" checked>
+                    <label for="twentyfive4" class="label">25%</label>
+
+                    <input type="radio" class="radio" name="progress4" value="fifty" id="fifty4">
+                    <label for="fifty4" class="label">50%</label>
+
+                    <input type="radio" class="radio" name="progress4" value="seventyfive" id="seventyfive4">
+                    <label for="seventyfive4" class="label">75%</label>
+
+                    <input type="radio" class="radio" name="progress4" value="onehundred" id="onehundred4">
+                    <label for="onehundred4" class="label">100%</label>
+
+                    <div class="progress">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+                <button class="pushable">
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front">
+        Detener
+      </span>
+      </button>
+            </div>
+            <!-- Cama 5 -->
+            <div class="mensaje">
+                <h1>Cama 5</h1>
+                <div class="container">
+                    <input type="radio" class="radio" name="progress5" value="five" id="five5">
+                    <label for="five5" class="label">5%</label>
+
+                    <input type="radio" class="radio" name="progress5" value="twentyfive" id="twentyfive5" checked>
+                    <label for="twentyfive5" class="label">25%</label>
+
+                    <input type="radio" class="radio" name="progress5" value="fifty" id="fifty5">
+                    <label for="fifty5" class="label">50%</label>
+
+                    <input type="radio" class="radio" name="progress5" value="seventyfive" id="seventyfive5">
+                    <label for="seventyfive5" class="label">75%</label>
+
+                    <input type="radio" class="radio" name="progress5" value="onehundred" id="onehundred5">
+                    <label for="onehundred5" class="label">100%</label>
+
+                    <div class="progress">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+                <button class="pushable">
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front">
+        Detener
+      </span>
+      </button>
+            </div>
+            <!-- Cama 6 -->
+            <div class="mensaje">
+                <h1>Cama 6</h1>
+                <div class="container">
+                    <input type="radio" class="radio" name="progress6" value="five" id="five6">
+                    <label for="five6" class="label">5%</label>
+
+                    <input type="radio" class="radio" name="progress6" value="twentyfive" id="twentyfive6" checked>
+                    <label for="twentyfive6" class="label">25%</label>
+
+                    <input type="radio" class="radio" name="progress6" value="fifty" id="fifty6">
+                    <label for="fifty6" class="label">50%</label>
+
+                    <input type="radio" class="radio" name="progress6" value="seventyfive" id="seventyfive6">
+                    <label for="seventyfive6" class="label">75%</label>
+
+                    <input type="radio" class="radio" name="progress6" value="onehundred" id="onehundred6">
+                    <label for="onehundred6" class="label">100%</label>
+
+                    <div class="progress">
+                      <div class="progress-bar"></div>
+                    </div>
+                  </div>
+                <button class="pushable">
+      <span class="shadow"></span>
+      <span class="edge"></span>
+      <span class="front">
+        Detener
+      </span>
+      </button>
+            </div>
+        </div>
+    </div>
+<script type="text/javascript" src="js/script.js"></script>
+</body>
+</html>
